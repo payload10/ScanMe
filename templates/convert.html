@@ -1,0 +1,75 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>ScanMe</title>
+        <script src="https://kit.fontawesome.com/c62c288009.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="templates/convert.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+    <style>
+        .btn:hover{
+            background: #A9A9A9 !important;
+        }
+    </style>
+
+    </head>
+
+<body style="background-color: #F8F0E3;">
+
+    <!--Card Elements-->
+    <div class="container">
+        <div class="card">
+            <div class="content" style="height:100%; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;"> 
+                    <Button class="btn" id="imgToPdf" style="transition: 0.2s ease-in; font-size: 34px; cursor: pointer; font-family: 'Poppins',sans-serif; padding: 8px 30px; color:  #000000; border-radius: 50px; border: none; font-weight: 1000; background:none; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); border-color: white; text-shadow: 0 0 1.5px black" download><strong>IMAGE to PDF</strong></Button>
+                    <Button class="btn" id="pngToJpg" style="transition: 0.2s ease-in; font-size: 34px; cursor: pointer; font-family: 'Poppins',sans-serif; padding: 8px 30px; color:  #000000; border-radius: 50px; border: none; font-weight: 1000; background:none; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); border-color: white; text-shadow: 0 0 1.5px black" download><strong>PNG to JPG</strong></Button>
+                    <Button class="btn" style="transition: 0.2s ease-in; font-size: 34px; cursor: pointer; font-family: 'Poppins',sans-serif; padding: 8px 30px; color:  #000000; border-radius: 50px; border: none; font-weight: 1000; background:none; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); border-color: white; text-shadow: 0 0 1.5px black"><strong>Hover me</strong></Button>
+                    <Button class="btn" style="transition: 0.2s ease-in; font-size: 34px; cursor: pointer; font-family: 'Poppins',sans-serif; padding: 8px 30px; color:  #000000; border-radius: 50px; border: none; font-weight: 1000; background:none; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); border-color: white; text-shadow: 0 0 1.5px black"><strong>Hover me</strong></Button>    
+            </div>
+        </div>
+    </div>
+
+    <!--Menu Button-->
+    <i class="fa fa-bars" aria-hidden="true" id="menu"></i>
+
+    <!--SideBar-->
+    <div id="a" class="sidebar">
+        <li id="l1"><a href="http://127.0.0.1:8000"><i class="fas fa-home">Home</i></a></li>
+        <li id="l2"><a href="fortheProject"><i class="fas fa-wrench">The Project</i></a></li>
+        <li id="l3"><a href="forContrib"><i class="fas fa-skating">Active Contributors</i></a></li>
+        <li id="l4"><a href="https://google.com"><i class="fas fa-sign-out-alt">Exit</i></a></li>
+    </div> 
+
+    {% if pdf %}
+    <div class="proceed">
+        <a type="Submit" id="proc" href="output.pdf"><i class="fa fa-arrow-down" aria-hidden="true" id="arrow"></i></a>
+    </div>
+
+    {% elif jpg %}
+    <div class="proceed">
+        <a type="Submit" id="proc" href="outputpngtojpg.jpg"><i class="fa fa-arrow-down" aria-hidden="true" id="arrow"></i></a>
+    </div>
+    {% else %}
+    {% endif %}
+
+    <script type="text/javascript">
+        const imgToPdf = document.getElementById("imgToPdf");
+        imgToPdf.addEventListener("click", function(){
+                window.alert("Click the download Arrow to Download");
+                window.location.href = 'imgTopdf';
+        });
+    </script>
+
+    <script type="text/javascript">
+        const pngToJpg = document.getElementById("pngToJpg");
+        pngToJpg.addEventListener("click", function(){
+                window.alert("Click the download Arrow to Download");
+                window.location.href = 'pngToJpg';
+        });
+    </script>
+
+</body>
+</html>

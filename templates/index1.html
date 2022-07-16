@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>ScanMe</title>
+        <script src="https://kit.fontawesome.com/c62c288009.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="templates/css1.css">
+    </head>
+
+    <body style="background-color: #F8F0E3;">
+
+
+        <!--Menu Button-->
+        <i class="fa fa-bars" aria-hidden="true" id="menu"></i>
+        
+
+        <!--Card Elements-->
+        <div class="container">
+            <div class="card">
+                <div class="content">
+                    <p>ScanMe </p>
+                    <h1>Get Set Scanned</h1>
+                    <form action="/" method="post" id="formToSubmit" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" name="image" id="real-file" hidden/>
+                        <input type="file" name="image2" id="real-file2" hidden/>
+                        <a id="upload">Reduce</a>
+                        <a  id="convert">Convert</a>
+                    </form>
+                           
+                </div>
+            </div>
+        </div>
+
+
+        <!--SideBar-->
+        <div id="a" class="sidebar">
+            <li id="l1"><a href=""><i class="fas fa-home">Home</i></a></li>
+            <li id="l2"><a href="fortheProject"><i class="fas fa-wrench">The Project</i></a></li>
+            <li id="l3"><a href="forContrib"><i class="fas fa-skating">Active Contributors</i></a></li>
+            <li id="l4"><a href="https://google.com"><i class="fas fa-sign-out-alt">Exit</i></a></li>
+        </div> 
+
+        <div class="proceed">
+            <!--<li id="l4"><a href="https://google.com"><i class="fa-solid fa-right">Exit</i></a></li>-->
+            <a type="Submit" id="proc"><i class="fa fa-arrow-right" aria-hidden="true" id="arrow"></i></a>
+            
+        </div>
+
+        <!-- For reducer (Image selection) -->
+        <script type="text/javascript">
+        
+            const realFileBtn = document.getElementById("real-file");
+            const customBtn = document.getElementById("upload");
+            
+
+            customBtn.addEventListener("click", function(){
+
+                realFileBtn.click();
+            });
+            
+            realFileBtn.onchange = () => {
+                const selectedFiles = [...realFileBtn.files]; 
+                v=realFileBtn.value
+                console.log(selectedFiles,v);
+                window.alert("file selected is :-"+v+"\n click to Proceed");
+                // tmp.innerHTML="file selected is :-"+v;
+            }
+
+        </script>
+
+        <!-- For converter (Image selection) -->
+        <script type="text/javascript">
+        
+            const realFileBtn2 = document.getElementById("real-file2");
+            const customBtn2 = document.getElementById("convert");
+            
+
+            customBtn2.addEventListener("click", function(){
+                realFileBtn2.click();
+            });
+            
+            realFileBtn2.onchange = () => {
+                const selectedFiles2 = [...realFileBtn.files]; 
+                v=realFileBtn2.value
+                console.log(selectedFiles2,v);
+                window.alert("file selected is :-"+v+"\n click to Proceed");
+                // tmp.innerHTML="file selected is :-"+v;
+            }
+
+        </script>
+
+        <!-- Proceed Button -->
+
+        <script type="text/javascript">
+            const submitForm = document.getElementById("formToSubmit");
+            const procBut = document.getElementById("proc");
+            
+
+            procBut.addEventListener("click", function(){
+                if(document.getElementById("real-file").value != ""){
+                    submitForm.submit();
+                }
+                else if(document.getElementById("real-file2").value.split('.')[1]=="png"){
+                    document.getElementById("formToSubmit").action = "convertPng";
+                    submitForm.submit();
+                }
+                else if(document.getElementById("real-file2").value != ""){
+                    document.getElementById("formToSubmit").action = "convert";
+                    submitForm.submit();
+                }
+                else{
+                    window.alert("Please Upload a file.");
+                }
+            });
+        </script>
+
+
+        <!--
+        <script type="text/javascript" src="vanilla-tilt.js"></script>
+        <script>
+            VanillaTilt.init(document.querySelector(".card")
+            ,{
+		        max: 25,
+		        speed: 400,
+                glare: true,
+                "max-glare": 0.5,
+	        })
+        </script>
+        -->
+    
+    </body>
+</html>

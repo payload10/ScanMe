@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins=200,300,400,500,600,700,800,900&display=swap');
+
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+section::before{
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#ffff,#f2aa4cff);
+    clip-path: circle(14% at right 90%);
+}
+
+section::after{
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#2196f3,#ffff);
+    clip-path: circle(12% at 5% 10%);
+}
+
+.container{
+
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.container .card{
+
+    position: relative;
+    width: 300px;
+    height: 450px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.container .card .content{
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.container .card:hover .content{
+
+    opacity: 1;
+    transform: translateY(-20px);
+}
+
+.container .card .content .imageBx{
+
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(0, 0, 0, 0.2);
+}
+
+.container .card .content .imageBx img{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .content .contentBx h3{
+
+    color: #111;
+    letter-spacing: 0.5px;
+    margin: 20px 0 10px;
+    font-weight: 600;
+    margin-left: 20px;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+.container .card .content .contentBx h3 span{
+
+    text-transform: initial;
+    font-size: 14px;
+}
+
+.container .card .content .contentBx h3 span ul{
+
+    list-style: none;
+}
+
+.container .card .sci{
+
+    position: absolute;
+    bottom: 30px;
+    left: 80px;
+    display: flex;
+    font-size: 24px;
+    text-align: center;
+    justify-content: center;
+}
+
+.container .card .sci li{
+
+    list-style: none;
+    margin: 0 10px;
+    transform: translateY(20px);
+    transition: 0.5s;
+    opacity: 0;
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.container .card .sci li a:hover #facebook{
+
+    color: #3b5998;
+}
+
+
+.container .card .sci li a{
+
+    color: grey;
+}
+
+.container .card .sci li a:hover #insta{
+
+    color: #6907a1;
+}
+
+.container .card .sci li a:hover #git{
+
+    color: black;
+}
+
+.container .card .sci li a:hover #linked{
+
+    color: #0e76a8;
+}
+
+.container .card .sci li a:hover #twitter{
+
+    color: #57c8ff;
+}
+
+.container .card .sci li a:hover #yt{
+
+    color: red;
+}
+
+.container .card:hover .sci li{
+
+    transform: translateY(0px);
+    opacity: 1;
+}

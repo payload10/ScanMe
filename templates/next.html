@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="templates/next.css">
+    <script src="https://kit.fontawesome.com/c62c288009.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="original">Uploaded Image:</h2>
+    <h2 id="blur">Final Image</h2>
+    <div class="container1" >
+        <div class="card1" style="display: flex; justify-content: center;">
+            <div class="content1">
+                <img src="0.jpg" height={{height}} width={{width}}>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="card2" style="display: flex; justify-content: center;position:absolute;">
+            <div class="content2">
+                <img src="{{number}}.jpg" height={{height}} width={{width}}>
+            </div>
+        </div>
+    </div>
+
+    <form action="/display" method="post" id="formToSubmit">
+            <input type="text" value={{height}} name="height" style="display: none;">
+            <input type="text" value={{width}} name="width" style="display: none;">
+            <input id="imgNum" type="text" value={{number}} name="number" style="display: none;">
+            {% csrf_token %}
+    </form>
+
+
+    <div class="proceed">
+        <a id="goHome" href="/"><i class="fas fa-home" aria-hidden="true" id="homePage"></i></a>
+        {% if number < 6 %}
+        <a id="proc"><i class="fa fa-arrow-right" aria-hidden="true" id="arrow"></i></a>
+        {% else %}
+        <a id="downloader" href="{{number}}.jpg" download><i class="fa fa-arrow-down" aria-hidden="true" id="arrow"></i></a>
+        {% endif %}
+    </div>
+
+<script type="text/javascript">
+        
+            const customBtn1 = document.getElementById("proc");
+            const submitForm = document.getElementById("formToSubmit");
+            const changeHead =document.getElementById("blur");
+
+            const number= document.getElementById("imgNum").value;
+            customBtn1.addEventListener("click", function(){
+                submitForm.submit();
+            });
+            var listing=[" ",'Gray','Thresholded Image','Canny Image Detection','Bright Image','Sharp Image','Final Image'];
+            changeHead.innerHTML=listing[number];
+
+
+            console.log(listing);
+        
+</script>
+
+</body>
+</html>
